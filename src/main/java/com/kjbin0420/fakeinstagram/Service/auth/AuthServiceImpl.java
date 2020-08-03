@@ -1,4 +1,8 @@
 package com.kjbin0420.fakeinstagram.Service.auth;
 
-public class AuthServiceImpl {
+import lombok.Value;
+
+public class AuthServiceImpl implements AuthService {
+    @Value("${auth.jwt.exp.refresh}")
+    private Long refreshExp;
 }
