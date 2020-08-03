@@ -1,11 +1,10 @@
 package com.kjbin0420.fakeinstagram.Security;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
-@Log4j2
 @Component
+@RequiredArgsConstructor
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-    
 }

@@ -1,4 +1,4 @@
-package com.kjbin0420.fakeinstagram.Request;
+package com.kjbin0420.fakeinstagram.Domain.Request;
 
 import lombok.Getter;
 import lombok.Setter;

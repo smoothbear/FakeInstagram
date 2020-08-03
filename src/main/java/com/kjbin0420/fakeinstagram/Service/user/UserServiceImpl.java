@@ -1,4 +1,4 @@
-package com.kjbin0420.fakeinstagram.Service;
+package com.kjbin0420.fakeinstagram.Service.user;
 
 import org.springframework.stereotype.Service;
 

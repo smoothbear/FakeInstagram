@@ -1,6 +1,6 @@
 package com.kjbin0420.fakeinstagram.Repository;
 
-import com.kjbin0420.fakeinstagram.Entity.Follower;
+import com.kjbin0420.fakeinstagram.Entity.User.Follower;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

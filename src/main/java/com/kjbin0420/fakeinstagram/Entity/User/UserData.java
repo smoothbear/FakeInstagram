@@ -1,4 +1,4 @@
-package com.kjbin0420.fakeinstagram.Entity;
+package com.kjbin0420.fakeinstagram.Entity.User;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -20,4 +20,5 @@ public class UserData {
     @Column(nullable = false)
     private String userPw;
     private String userName;
+    private String imagePath;
 }
