@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     private final JwtTokenProvider jwtTokenProvider;
 
     @Bean
@@ -26,8 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/user/register").permitAll()
                     .antMatchers("/user/login").permitAll()
                 .and()
-                    .apply().and()
-                    .apply();
+                    .apply()
     }
 
     @Bean

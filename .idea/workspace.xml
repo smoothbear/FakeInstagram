@@ -20,27 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="513601d8-9b4d-474e-8197-6cc0d2582a41" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtConfigurer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtTokenProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/Follower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/User/Follower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/Following.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/User/Following.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/User/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Response/UserPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/CustomUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Request/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Response/TokenResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Response/UserPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +51,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fakeinstagram" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -108,53 +103,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="fakeinstagram.main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="fakeinstagram.main" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FakeinstagramApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="fakeinstagram.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kjbin0420.fakeinstagram.FakeinstagramApplication" />
@@ -188,6 +136,14 @@
       <workItem from="1596442651996" duration="3393000" />
       <workItem from="1596458752247" duration="78000" />
       <workItem from="1596458835063" duration="3199000" />
+      <workItem from="1596506207553" duration="157000" />
+      <workItem from="1596506454873" duration="695000" />
+      <workItem from="1596540499619" duration="97000" />
+      <workItem from="1596591450915" duration="812000" />
+      <workItem from="1596593489785" duration="49000" />
+      <workItem from="1596626418522" duration="452000" />
+      <workItem from="1596635496709" duration="496000" />
+      <workItem from="1596680240828" duration="1689000" />
     </task>
     <servers />
   </component>
