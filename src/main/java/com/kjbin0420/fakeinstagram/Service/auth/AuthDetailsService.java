@@ -1,7 +1,7 @@
 package com.kjbin0420.fakeinstagram.Service.auth;
 
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
-import com.kjbin0420.fakeinstagram.Repository.UserRepository;
+import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,9 @@ public class AuthDetailsService implements UserDetailsService {
     @Override
     public AuthDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         UserData userData = userRepository.findByUserId(userId);
-        return new AuthDetails(userData.getUserId(), userData.getUserPw());
+        if (userData != null)
+            return new AuthDetails(userData.getUserId(), userData.getUserPw());
+        else
+            throw new UsernameNotFoundException(userId);
     }
 }

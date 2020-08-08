@@ -19,16 +19,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="513601d8-9b4d-474e-8197-6cc0d2582a41" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="513601d8-9b4d-474e-8197-6cc0d2582a41" name="Default Changelist" comment="Rename Folder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Entity/Token/RefreshToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Exceptions/ExpiredTokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Exceptions/InvalidTokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/Token/RefreshTokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/AuthenticationFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Response/TokenResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Domain/Response/UserPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/User/FollowerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/FollowingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/User/FollowingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Repository/User/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtConfigurer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/JwtTokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/auth/AuthServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kjbin0420/fakeinstagram/Service/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
@@ -55,6 +69,17 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="fakeinstagram" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fakeinstagram" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fakeinstagram" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -94,7 +119,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -144,7 +169,18 @@
       <workItem from="1596626418522" duration="452000" />
       <workItem from="1596635496709" duration="496000" />
       <workItem from="1596680240828" duration="1689000" />
+      <workItem from="1596775124727" duration="199000" />
+      <workItem from="1596778563147" duration="10583000" />
+      <workItem from="1596859422649" duration="6984000" />
     </task>
+    <task id="LOCAL-00001" summary="Rename Folder">
+      <created>1596775150982</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596775150982</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,11 +198,19 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rename Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename Folder" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="801" y="412" key="#Assign_Data_Sources" timestamp="1596412770211">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="801" y="412" key="#Assign_Data_Sources/0.0.1792.1120@0.0.1792.1120" timestamp="1596412770211" />
+    <state x="496" y="203" width="800" height="717" key="#Intentions" timestamp="1596780212077">
+      <screen x="0" y="23" width="1792" height="1030" />
+    </state>
+    <state x="496" y="203" width="800" height="717" key="#Intentions/0.23.1792.1030@0.23.1792.1030" timestamp="1596780212077" />
     <state x="384" y="119" key="#Project_Structure" timestamp="1596180897643">
       <screen x="0" y="23" width="1792" height="1031" />
     </state>
@@ -192,14 +236,15 @@
       <screen x="0" y="23" width="1792" height="1031" />
     </state>
     <state x="644" y="402" width="505" height="275" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1792.1031@0.23.1792.1031" timestamp="1596451798084" />
-    <state x="397" y="177" key="SettingsEditor" timestamp="1596460999734">
+    <state x="397" y="177" key="SettingsEditor" timestamp="1596794198678">
       <screen x="0" y="23" width="1792" height="1030" />
     </state>
-    <state x="397" y="177" key="SettingsEditor/0.23.1792.1030@0.23.1792.1030" timestamp="1596460999734" />
-    <state x="496" y="296" key="Vcs.Push.Dialog.v2" timestamp="1596422973883">
-      <screen x="0" y="0" width="1792" height="1120" />
+    <state x="397" y="177" key="SettingsEditor/0.23.1792.1030@0.23.1792.1030" timestamp="1596794198678" />
+    <state x="496" y="295" key="Vcs.Push.Dialog.v2" timestamp="1596775160243">
+      <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="496" y="296" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1596422973883" />
+    <state x="496" y="295" key="Vcs.Push.Dialog.v2/0.23.1792.1030@0.23.1792.1030" timestamp="1596775160243" />
     <state x="598" y="103" width="596" height="870" key="find.popup" timestamp="1596453491252">
       <screen x="0" y="23" width="1792" height="1031" />
     </state>

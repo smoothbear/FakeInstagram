@@ -1,6 +1,6 @@
 package com.kjbin0420.fakeinstagram.Service.user;
 
-import com.kjbin0420.fakeinstagram.Repository.UserRepository;
+import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

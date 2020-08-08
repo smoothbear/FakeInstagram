@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
-    private CustomUserDetailsService customUserDetailsService;
     @PostMapping("/{userId}")
     public UserPage userProfile(@PathVariable String userId) {
+
+    }
+
+    @GetMapping("/following/{targetId}")
+    public void userFollowing(@PathVariable String targetId) {
 
     }
 }

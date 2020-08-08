@@ -1,4 +1,4 @@
-package com.kjbin0420.fakeinstagram.Repository;
+package com.kjbin0420.fakeinstagram.Repository.User;
 
 import com.kjbin0420.fakeinstagram.Entity.User.Following;
 import org.springframework.data.repository.CrudRepository;
