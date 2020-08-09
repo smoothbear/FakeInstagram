@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     compileOnly 'org.projectlombok:lombok'
@@ -27,6 +28,7 @@ dependencies {
     compile 'org.springframework.security:spring-security-web:4.2.2.RELEASE'
     compile 'org.springframework.security:spring-security-config:4.2.2.RELEASE'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

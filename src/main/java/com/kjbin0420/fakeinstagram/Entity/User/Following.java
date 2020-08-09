@@ -1,12 +1,13 @@
 package com.kjbin0420.fakeinstagram.Entity.User;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity @Table
+@Entity @Table @AllArgsConstructor
 @NoArgsConstructor @Getter @Builder
 public class Following {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

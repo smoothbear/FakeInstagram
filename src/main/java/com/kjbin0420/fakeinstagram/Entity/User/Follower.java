@@ -1,5 +1,6 @@
 package com.kjbin0420.fakeinstagram.Entity.User;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,8 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table
-@NoArgsConstructor @Builder @Getter
+@Table @Builder @AllArgsConstructor
+@NoArgsConstructor @Getter
 public class Follower {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer UUID;
