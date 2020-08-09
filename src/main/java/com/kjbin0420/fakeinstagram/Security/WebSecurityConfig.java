@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 .authorizeRequests()
                     .antMatchers("/user/register").permitAll()
-                    .antMatchers("/user/login").permitAll()
+                    .antMatchers("/auth").permitAll()
                 .and()
                     .apply(new JwtConfigurer(jwtTokenProvider));
     }

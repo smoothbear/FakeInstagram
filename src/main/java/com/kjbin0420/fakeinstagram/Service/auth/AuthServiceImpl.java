@@ -13,7 +13,6 @@ import com.kjbin0420.fakeinstagram.Security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.InvalidCsrfTokenException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public TokenResponse signIn(LoginRequest request) {
         return userRepository.findByUserId(request.getUserId())
-                .filter(userData -> passwordEncoder.matches(request.getUserPw(), userData.getUserPw()))
+                .filter(userData -> request.getUserPw().equals(userData.getUserPw()))
                     .map(UserData::getUserId)
                     .map(userId -> {
                         String refreshToken = jwtTokenProvider.generateRefreshToken(userId);
@@ -43,7 +42,7 @@ public class AuthServiceImpl implements AuthService {
                         String accessToken = jwtTokenProvider.generateAccessToken(refreshToken.getUserId());
                         return new TokenResponse(accessToken, refreshToken.getRefreshToken(), tokenType);
                     })
-                    .orElseThrow(UserNotFoundException::new);
+                .orElseThrow(UserNotFoundException::new);
     }
 
     @Override

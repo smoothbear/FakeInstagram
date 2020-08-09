@@ -1,6 +1,8 @@
 package com.kjbin0420.fakeinstagram.Service.user;
 
+import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
+
 public interface UserService {
     public void userProfileService(String userId);
-    public void userLogin()
+    public boolean userRegisterService(RegisterRequest request);
 }

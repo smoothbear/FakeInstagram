@@ -27,10 +27,10 @@ public class JwtTokenProvider {
     @Value("${auth.jwt.exp.refresh}")
     private Long refreshTokenExpiration;
 
-    @Value("{auth.jwt.exp.header}")
+    @Value("${auth.jwt.header}")
     private String header;
 
-    @Value("{auth.jwt.exp.prefix}")
+    @Value("${auth.jwt.prefix}")
     private String prefix;
 
     public String generateAccessToken(String data) {
