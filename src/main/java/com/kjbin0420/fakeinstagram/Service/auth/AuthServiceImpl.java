@@ -36,6 +36,13 @@ public class AuthServiceImpl implements AuthService {
                     .map(UserData::getUserId)
                     .map(userId -> {
                         String refreshToken = jwtTokenProvider.generateRefreshToken(userId);
+                        refreshTokenRepository.save(
+                                RefreshToken.builder()
+                                    .userId(userId)
+                                    .refreshToken(refreshToken)
+                                    .ttl(refreshExp)
+                                    .build()
+                        );
                         return new RefreshToken(userId, refreshToken, refreshExp);
                     })
                     .map(refreshToken -> {

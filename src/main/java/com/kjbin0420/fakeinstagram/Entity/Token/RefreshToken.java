@@ -1,6 +1,7 @@
 package com.kjbin0420.fakeinstagram.Entity.Token;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-@Getter @AllArgsConstructor @NoArgsConstructor
+@Getter @AllArgsConstructor @NoArgsConstructor @Builder
 public class RefreshToken {
     @Id
     private String userId;

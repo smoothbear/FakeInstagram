@@ -14,6 +14,6 @@ public class Following {
     private Integer UUID;
 
     @Column(nullable = false)
-    private Integer userUUID;
+    private String targetUserId;
     private String userId;
 }
