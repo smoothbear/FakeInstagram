@@ -13,7 +13,12 @@ public class Following {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer UUID;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String targetUserId;
+
+    @Column(nullable = false)
     private String userId;
+
+    @Column
+    private String targetUserProfilePath;
 }
