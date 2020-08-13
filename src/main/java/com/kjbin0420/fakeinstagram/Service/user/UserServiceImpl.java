@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Value("${profile.save.auth}")
     private String uploadPath;
 
-    private String getUserFilePath(String userId) {
+    public String getUserFilePath(String userId) {
         return userRepository.findByUserId(userId)
                 .map(UserData::getImagePath)
                 .orElseThrow(UserNotFoundException::new);
