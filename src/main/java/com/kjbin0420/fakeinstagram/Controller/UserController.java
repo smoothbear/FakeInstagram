@@ -35,4 +35,9 @@ public class UserController {
     public boolean userRegister(@RequestBody RegisterRequest request) {
         return userService.userRegisterService(request);
     }
+
+    @GetMapping("/profile")
+    public String loadProfileImage(String userId) {
+        return userService.getUserFilePath(userId);
+    }
 }

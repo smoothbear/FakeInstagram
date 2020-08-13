@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface UserService {
+    public String getUserFilePath(String userId);
     public void userProfileService(String userId);
     public String userProfileImageUpload(MultipartFile file, String userId);
     public boolean userRegisterService(RegisterRequest request);
