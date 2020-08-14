@@ -1,5 +1,7 @@
 package com.kjbin0420.fakeinstagram.Payload.Response;
 
-public class UserPage {
+import java.io.Serializable;
 
+public class UserPage implements Serializable {
+    private static final long serialVersionUID = -4116934977421581348L;
 }
