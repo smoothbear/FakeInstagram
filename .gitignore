@@ -17,4 +17,4 @@ src/main/resources/application.properties
 
 .gradle/checksums/
 
-.gradle/
+.gradle/**
