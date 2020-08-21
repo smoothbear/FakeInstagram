@@ -9,22 +9,16 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Builder @AllArgsConstructor
-public class BoardData {
+public class BoardComment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer UUID;
 
-    @Column(updatable = true, nullable = false)
-    private String boardTitle;
+    @Column(updatable = false, nullable = false)
+    private String commentWriter;
 
     @Column(nullable = false)
-    private Integer viewNum;
-
-    @Column(updatable = true, nullable = false)
-    private String boardText;
+    private String commentContext;
 
     @ManyToOne
-    private PicturePath picturePath;
-
-    @ManyToOne
-    private BoardComment boardComment;
+    private BoardCommentReply commentReply;
 }
