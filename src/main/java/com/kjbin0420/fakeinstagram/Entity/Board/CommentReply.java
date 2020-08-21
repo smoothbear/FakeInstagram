@@ -9,8 +9,9 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class BoardCommentReply {
+public class CommentReply {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "commentreply_id")
     private Integer UUID;
 
     @Column(updatable = false, nullable = false)

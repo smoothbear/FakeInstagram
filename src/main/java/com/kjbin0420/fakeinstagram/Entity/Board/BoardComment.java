@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Builder @AllArgsConstructor
 public class BoardComment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "boardcomment_id")
     private Integer UUID;
 
     @Column(updatable = false, nullable = false)
@@ -19,6 +21,6 @@ public class BoardComment {
     @Column(nullable = false)
     private String commentContext;
 
-    @ManyToOne
-    private BoardCommentReply commentReply;
+    @OneToMany
+    private List<CommentReply> commentReply;
 }
