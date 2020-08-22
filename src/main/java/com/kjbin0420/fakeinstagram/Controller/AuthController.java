@@ -13,14 +13,14 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthServiceImpl authService;
-
+    
     @PostMapping
     public TokenResponse login(@RequestBody @Valid LoginRequest request) {
         return authService.signIn(request);
     }
 
     @PutMapping
-    public TokenResponse refreshToken(@RequestHeader("Refresh-Token") String request) {
+    public TokenResponse refreshToken(@RequestHeader("refresh_token") String request) {
         return authService.refreshToken(request);
     }
 }

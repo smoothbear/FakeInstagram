@@ -4,6 +4,7 @@ import com.kjbin0420.fakeinstagram.Entity.User.Following;
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserNotFoundException;
+import com.kjbin0420.fakeinstagram.Payload.Request.ProfileUpdateRequest;
 import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
 import com.kjbin0420.fakeinstagram.Repository.User.FollowingRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
@@ -97,8 +98,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Following> userFollowingList(HttpServletRequest request) {
+    public List<Following> getUserFollowingService(HttpServletRequest request) {
         String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
         return followingRepository.findAllByUserId(userId);
+    }
+
+    @Override
+    public void userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest UpdateRequest) {
+        String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
     }
 }
