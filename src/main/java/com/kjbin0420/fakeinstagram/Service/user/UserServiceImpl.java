@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     private final FollowingRepository followingRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
-    @Value("${profile.save.auth}")
+    @Value("${profile.save.path}")
     private String uploadPath;
 
     public String getUserFilePath(String userId) {
@@ -104,7 +104,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest UpdateRequest) {
+    public boolean userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
         String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        return userRepository.findByUserId(userId)
+                .map(userData -> {
+                    userData.setUserName(updateRequest.getUserName());
+                    userData.setUserPw(updateRequest.getUserPw());
+                    userData.setUserEmail(updateRequest.getUserEmail());
+                    userRepository.userProfileUpdate(userData);
+                    return true;
+                })
+                .orElseThrow(UserNotFoundException::new);
     }
 }

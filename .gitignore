@@ -16,3 +16,5 @@ src/main/resources/application.properties
 .gradle/buildOutputCleanup/
 
 .gradle/checksums/
+
+.build/**

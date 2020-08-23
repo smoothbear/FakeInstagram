@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/profileUpdate")
-    public void profileUpdate(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
-        userService.userProfileUpdateService(request, updateRequest);
+    public boolean profileUpdate(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
+        return userService.userProfileUpdateService(request, updateRequest);
     }
 }

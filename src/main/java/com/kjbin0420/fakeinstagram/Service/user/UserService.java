@@ -15,5 +15,5 @@ public interface UserService {
     public boolean userRegisterService(RegisterRequest request);
     public void userFollowingService(String targetId, HttpServletRequest request);
     public List<Following> getUserFollowingService(HttpServletRequest request);
-    public void userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest updateRequest);
+    public boolean userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest updateRequest);
 }

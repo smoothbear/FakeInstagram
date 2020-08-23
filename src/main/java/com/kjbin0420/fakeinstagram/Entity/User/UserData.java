@@ -25,4 +25,20 @@ public class UserData {
 
     @Column
     private String imagePath;
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public void setUserPw(String userPw) {
+        this.userPw = userPw;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
