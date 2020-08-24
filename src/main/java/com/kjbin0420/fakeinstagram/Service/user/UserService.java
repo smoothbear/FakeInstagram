@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserService {
     public String getUserFilePath(String userId);
     public void userProfileService(String userId);
-    public String userProfileImageUpload(MultipartFile file, String userId);
+    public String profileImageUploadService(MultipartFile file, String userId);
     public boolean userRegisterService(RegisterRequest request);
     public void userFollowingService(String targetId, HttpServletRequest request);
     public List<Following> getUserFollowingService(HttpServletRequest request);

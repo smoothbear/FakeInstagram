@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String userProfileImageUpload(MultipartFile file, String userId) {
+    public String profileImageUploadService(MultipartFile file, String userId) {
         Path location = Paths.get(uploadPath + userId);
         try {
             Files.copy(file.getInputStream(), location, StandardCopyOption.REPLACE_EXISTING);
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
             if (request.getProfileImage() != null) {
                 userRepository.save(
                         UserData.builder()
-                                .imagePath(userProfileImageUpload(request.getProfileImage(), request.getUserId()))
+                                .imagePath(profileImageUploadService(request.getProfileImage(), request.getUserId()))
                                 .userId(request.getUserId())
                                 .userPw(request.getUserPw())
                                 .userEmail(request.getUserEmail())
@@ -106,6 +106,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
         String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        profileImageUploadService(updateRequest.getProfileImage(), userId);
         return userRepository.findByUserId(userId)
                 .map(userData -> {
                     userData.setUserName(updateRequest.getUserName());
