@@ -48,4 +48,9 @@ public class UserController {
     public boolean profileUpdate(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
         return userService.userProfileUpdateService(request, updateRequest);
     }
+
+    @GetMapping("/checkVerification")
+    public boolean checkVerification(String code) {
+
+    }
 }

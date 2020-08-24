@@ -5,7 +5,6 @@ import com.kjbin0420.fakeinstagram.Entity.User.UserData;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserNotFoundException;
 import com.kjbin0420.fakeinstagram.Payload.Request.ProfileUpdateRequest;
-import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
 import com.kjbin0420.fakeinstagram.Repository.User.FollowingRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import com.kjbin0420.fakeinstagram.Security.JwtTokenProvider;
@@ -21,7 +20,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -40,11 +38,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String profileImageUploadService(MultipartFile file, String userId) {
+    public void profileImageUploadService(MultipartFile file, String userId) {
         Path location = Paths.get(uploadPath + userId);
         try {
             Files.copy(file.getInputStream(), location, StandardCopyOption.REPLACE_EXISTING);
-            return location.getFileName().toString();
         } catch (IOException e) {
             throw new FileStorageException(file.getOriginalFilename());
         }
@@ -52,37 +49,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void userProfileService(String userId) {
-    }
-
-    @Override
-    public boolean userRegisterService(RegisterRequest request){
-        Optional<UserData> userData = userRepository.findByUserId(request.getUserId());
-        if (userData.isEmpty()) {
-            if (request.getProfileImage() != null) {
-                userRepository.save(
-                        UserData.builder()
-                                .imagePath(profileImageUploadService(request.getProfileImage(), request.getUserId()))
-                                .userId(request.getUserId())
-                                .userPw(request.getUserPw())
-                                .userEmail(request.getUserEmail())
-                                .userName(request.getUserName())
-                                .build()
-                );
-            }
-            else {
-                userRepository.save(
-                        UserData.builder()
-                        .userId(request.getUserId())
-                        .userPw(request.getUserPw())
-                        .userEmail(request.getUserEmail())
-                        .userName(request.getUserName())
-                        .build()
-                );
-            }
-            return true;
-        }
-        else
-            return false;
     }
 
     @Override
