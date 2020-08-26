@@ -1,10 +1,12 @@
 package com.kjbin0420.fakeinstagram.Service.user;
 
+import com.kjbin0420.fakeinstagram.Entity.User.Follower;
 import com.kjbin0420.fakeinstagram.Entity.User.Following;
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserNotFoundException;
 import com.kjbin0420.fakeinstagram.Payload.Request.ProfileUpdateRequest;
+import com.kjbin0420.fakeinstagram.Repository.User.FollowerRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.FollowingRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import com.kjbin0420.fakeinstagram.Security.JwtTokenProvider;
@@ -20,12 +22,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final FollowingRepository followingRepository;
+    private final FollowerRepository followerRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
     @Value("${profile.save.path}")
@@ -52,15 +56,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void userFollowingService(String targetId, HttpServletRequest request) {
+    public boolean userFollowingService(String targetId, HttpServletRequest request) {
         String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
-        followingRepository.save(
-                Following.builder()
-                    .targetUserId(targetId)
-                    .userId(userId)
-                    .targetUserProfilePath(getUserFilePath(targetId))
-                    .build()
-        );
+        userRepository.findByUserId(userId)
+                .map(userData -> {
+                    followingRepository.save(
+                            Following.builder()
+                                    .targetUserId(targetId)
+                                    .userId(userId)
+                                    .targetUserProfilePath(getUserFilePath(targetId))
+                                    .build()
+                    );
+                    followerRepository.save(
+                            Follower.builder()
+                                .userUUID(userData.getUUID())
+                                .userId(targetId)
+                                .build()
+                    );
+                    return true;
+                })
+                .orElseThrow(UserNotFoundException::new);
+        return false;
     }
 
     @Override
@@ -82,5 +98,11 @@ public class UserServiceImpl implements UserService {
                     return true;
                 })
                 .orElseThrow(UserNotFoundException::new);
+    }
+
+    @Override
+    public List<Follower> getUserFollowerService(HttpServletRequest request) {
+        String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        return
     }
 }

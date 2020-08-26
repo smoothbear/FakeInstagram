@@ -25,8 +25,8 @@ public class UserController {
     }
     */
     @GetMapping("/following/{targetId}")
-    public void userFollowing(@PathVariable String targetId, HttpServletRequest request) {
-        userService.userFollowingService(targetId, request);
+    public boolean userFollowing(@PathVariable String targetId, HttpServletRequest request) {
+        return userService.userFollowingService(targetId, request);
     }
 
     @GetMapping("/followingList")
@@ -40,8 +40,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public boolean userRegister(@RequestBody RegisterRequest request) {
-        return userService.userRegisterService(request);
+    public void userRegister(@RequestBody RegisterRequest request) {
+        userService.userRegisterService(request);
     }
 
     @PostMapping("/profileUpdate")
