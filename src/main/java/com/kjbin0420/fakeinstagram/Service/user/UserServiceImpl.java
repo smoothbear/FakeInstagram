@@ -4,8 +4,10 @@ import com.kjbin0420.fakeinstagram.Entity.User.Follower;
 import com.kjbin0420.fakeinstagram.Entity.User.Following;
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
+import com.kjbin0420.fakeinstagram.Exceptions.UserAlreadyRegisteredException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserNotFoundException;
 import com.kjbin0420.fakeinstagram.Payload.Request.ProfileUpdateRequest;
+import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
 import com.kjbin0420.fakeinstagram.Repository.User.FollowerRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.FollowingRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
@@ -101,8 +103,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void userRegisterService(RegisterRequest request) {
+        Optional<UserData> userData = userRepository.findByUserId(request.getUserId());
+        if (userData.isEmpty() && request.isEmailIdentified()) {
+            userRepository.save(
+                    UserData.builder()
+                    .userName(request.getUserName())
+                    .userEmail(request.getUserEmail())
+                    .userId(request.getUserId())
+                    .userPw(request.getUserPw())
+                    .build()
+            );
+        }
+        else
+            throw new UserAlreadyRegisteredException();
+    }
+
+    @Override
     public List<Follower> getUserFollowerService(HttpServletRequest request) {
         String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
-        return
+        return followerRepository.findAllByUserId(userId)
+                .orElseThrow(UserNotFoundException::new);
     }
 }

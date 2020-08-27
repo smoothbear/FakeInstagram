@@ -14,4 +14,5 @@ public class RegisterRequest {
 
     @Email
     String userEmail;
+    boolean emailIdentified;
 }
