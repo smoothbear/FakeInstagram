@@ -36,4 +36,12 @@ public class BoardData {
     @OneToMany
     @JoinColumn(name = "boardcomment_id")
     private List<BoardComment> boardComment;
+
+    public void addComment(BoardComment comment) {
+        this.boardComment.add(comment);
+    }
+
+    public void addPicturePath(PicturePath picturePath) {
+        this.picturePath.add(picturePath);
+    }
 }

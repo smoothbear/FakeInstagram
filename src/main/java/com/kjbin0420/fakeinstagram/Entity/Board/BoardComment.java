@@ -16,7 +16,7 @@ public class BoardComment {
     private Integer UUID;
 
     @Column(updatable = false, nullable = false)
-    private String commentWriter;
+    private String writerId;
 
     @Column(nullable = false)
     private String commentContext;
