@@ -36,4 +36,9 @@ public class BoardServiceImpl implements BoardService {
                     })
                     .orElseThrow(BoardNotFoundException::new);
     }
+
+    @Override
+    public void addPictureService(HttpServletRequest request, Integer boardNum) {
+
+    }
 }
