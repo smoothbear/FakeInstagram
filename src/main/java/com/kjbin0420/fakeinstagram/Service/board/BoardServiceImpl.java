@@ -32,10 +32,13 @@ public class BoardServiceImpl implements BoardService {
     private final String imageBasicPath;
 
     private void uploadPictureService(List<MultipartFile> image, String imagePath) {
+        int num = 1;
+
         try {
             for (MultipartFile file : image) {
-                Path location = Paths.get(imagePath);
+                Path location = Paths.get(imagePath + "/" + Integer.toString(num));
                 Files.copy(file.getInputStream(), location, StandardCopyOption.REPLACE_EXISTING);
+                num++;
             }
         } catch (IOException e) {
             throw new FileStorageException();
@@ -78,6 +81,4 @@ public class BoardServiceImpl implements BoardService {
         List<MultipartFile> picture = boardRequest.getPicture();
         this.uploadPictureService(picture, imagePath);
     }
-
-
 }
