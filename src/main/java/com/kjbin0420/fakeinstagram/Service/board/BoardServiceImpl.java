@@ -3,14 +3,23 @@ package com.kjbin0420.fakeinstagram.Service.board;
 import com.kjbin0420.fakeinstagram.Entity.Board.BoardComment;
 import com.kjbin0420.fakeinstagram.Entity.Board.BoardData;
 import com.kjbin0420.fakeinstagram.Exceptions.BoardNotFoundException;
+import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
+import com.kjbin0420.fakeinstagram.Payload.Request.BoardAddRequest;
 import com.kjbin0420.fakeinstagram.Repository.Board.BoardCommentRepository;
 import com.kjbin0420.fakeinstagram.Repository.Board.BoardRepository;
 import com.kjbin0420.fakeinstagram.Security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +27,20 @@ public class BoardServiceImpl implements BoardService {
     private BoardRepository boardRepository;
     private BoardCommentRepository commentRepository;
     private JwtTokenProvider jwtTokenProvider;
+
+    @Value("${board.image.path}")
+    private final String imageBasicPath;
+
+    private void uploadPictureService(List<MultipartFile> image, String imagePath) {
+        try {
+            for (MultipartFile file : image) {
+                Path location = Paths.get(imagePath);
+                Files.copy(file.getInputStream(), location, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException e) {
+            throw new FileStorageException();
+        }
+    }
 
     @Override
     public void addCommentService(HttpServletRequest request, String comment, Integer boardNum) {
@@ -38,7 +61,23 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void addPictureService(HttpServletRequest request, Integer boardNum) {
+    public void addBoardService(HttpServletRequest request, BoardAddRequest boardRequest) {
+        final String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
 
+        BoardData boardData = boardRepository.save(
+                BoardData.builder()
+                    .writer(userId)
+                    .boardTitle(boardRequest.getTitle())
+                    .boardText(boardRequest.getBodyText())
+                    .build()
+        );
+
+        Integer boardNum = boardData.getUUID();
+        final String imagePath = imageBasicPath + boardNum.toString();
+
+        List<MultipartFile> picture = boardRequest.getPicture();
+        this.uploadPictureService(picture, imagePath);
     }
+
+
 }

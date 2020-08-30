@@ -1,11 +1,9 @@
 package com.kjbin0420.fakeinstagram.Controller;
 
+import com.kjbin0420.fakeinstagram.Payload.Request.BoardAddRequest;
 import com.kjbin0420.fakeinstagram.Service.board.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,5 +16,10 @@ public class PageController {
     @GetMapping("/{boardNum}")
     public void addComment(@PathVariable Integer boardNum, HttpServletRequest request, String comment) {
         boardService.addCommentService(request, comment, boardNum);
+    }
+
+    @PostMapping("/addPicture")
+    public void addPicture(HttpServletRequest request, BoardAddRequest boardRequest) {
+        boardService.addBoardService(request, boardRequest);
     }
 }

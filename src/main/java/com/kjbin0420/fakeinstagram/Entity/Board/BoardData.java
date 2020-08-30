@@ -16,6 +16,9 @@ public class BoardData {
     @Column(name = "board_id")
     private Integer UUID;
 
+    @Column
+    private String writer;
+
     @Column(updatable = true, nullable = false)
     private String boardTitle;
 
@@ -43,5 +46,9 @@ public class BoardData {
 
     public void addPicturePath(PicturePath picturePath) {
         this.picturePath.add(picturePath);
+    }
+
+    public Integer getUUID() {
+        return this.UUID;
     }
 }

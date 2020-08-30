@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean userFollowingService(String targetId, HttpServletRequest request) {
-        String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        final String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
         userRepository.findByUserId(userId)
                 .map(userData -> {
                     followingRepository.save(
@@ -83,13 +83,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Following> getUserFollowingService(HttpServletRequest request) {
-        String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        final String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
         return followingRepository.findAllByUserId(userId);
     }
 
     @Override
     public boolean userProfileUpdateService(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
-        String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
+        final String userId = jwtTokenProvider.getUserId(jwtTokenProvider.resolveToken(request));
         profileImageUploadService(updateRequest.getProfileImage(), userId);
         return userRepository.findByUserId(userId)
                 .map(userData -> {
