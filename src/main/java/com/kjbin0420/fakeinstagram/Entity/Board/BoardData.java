@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -34,7 +35,7 @@ public class BoardData {
 
     @OneToMany
     @JoinColumn(name = "picturepath_id")
-    private List<PicturePath> picturePath;
+    private Set<PicturePath> picturePath;
 
     @OneToMany
     @JoinColumn(name = "boardcomment_id")
