@@ -5,5 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface RegisterService {
     public boolean userRegisterService(RegisterRequest request);
+    public boolean isAlreadyRegisteredService(String userId);
     public String profileImageUploadService(MultipartFile file, String userId);
+    public boolean registerEmailCheckService(Integer num);
 }

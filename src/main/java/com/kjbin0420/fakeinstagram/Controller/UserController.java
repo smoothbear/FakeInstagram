@@ -3,7 +3,6 @@ package com.kjbin0420.fakeinstagram.Controller;
 import com.kjbin0420.fakeinstagram.Entity.User.Following;
 import com.kjbin0420.fakeinstagram.Payload.Request.ProfileUpdateRequest;
 import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
-import com.kjbin0420.fakeinstagram.Service.auth.AuthService;
 import com.kjbin0420.fakeinstagram.Service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-    private final AuthService authService;
 
     /*
     @PostMapping("/{userId}")
@@ -39,18 +37,8 @@ public class UserController {
         return userService.getUserFilePath(userId);
     }
 
-    @PostMapping("/register")
-    public void userRegister(@RequestBody RegisterRequest request) {
-        userService.userRegisterService(request);
-    }
-
     @PostMapping("/profileUpdate")
     public boolean profileUpdate(HttpServletRequest request, ProfileUpdateRequest updateRequest) {
         return userService.userProfileUpdateService(request, updateRequest);
-    }
-
-    @GetMapping("/checkVerification")
-    public boolean checkVerification(String code) {
-
     }
 }

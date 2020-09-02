@@ -1,9 +1,12 @@
 package com.kjbin0420.fakeinstagram.Service.user;
 
+import com.kjbin0420.fakeinstagram.Entity.User.EmailAuthNum;
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
+import com.kjbin0420.fakeinstagram.Exceptions.EmailNumNotMatchedException;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserAlreadyRegisteredException;
 import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
+import com.kjbin0420.fakeinstagram.Repository.User.EmailAuthNumRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +24,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RegisterServiceImpl implements RegisterService {
     private final UserRepository userRepository;
+    private final EmailAuthNumRepository emailAuthNumRepository;
 
     @Value("${profile.save.path}")
     private String uploadPath;
@@ -34,6 +38,22 @@ public class RegisterServiceImpl implements RegisterService {
         } catch (IOException e) {
             throw new FileStorageException(file.getOriginalFilename());
         }
+    }
+
+    @Override
+    public boolean isAlreadyRegisteredService(String userId) {
+        Optional<UserData> userData = userRepository.findByUserId(userId);
+        return userData.isEmpty();
+    }
+
+    @Override
+    public boolean registerEmailCheckService(Integer num) {
+        return emailAuthNumRepository.findByNum(num)
+                .map(emailAuthNum -> {
+                    emailAuthNumRepository.delete(emailAuthNum);
+                    return true;
+                })
+                .orElse(false);
     }
 
     @Override

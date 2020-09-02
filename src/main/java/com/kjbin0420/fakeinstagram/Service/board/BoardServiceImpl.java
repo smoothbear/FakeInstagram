@@ -25,9 +25,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
-    private BoardRepository boardRepository;
-    private BoardCommentRepository commentRepository;
-    private JwtTokenProvider jwtTokenProvider;
+    private final BoardRepository boardRepository;
+    private final BoardCommentRepository commentRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Value("${board.image.path}")
     private final String imageBasicPath;

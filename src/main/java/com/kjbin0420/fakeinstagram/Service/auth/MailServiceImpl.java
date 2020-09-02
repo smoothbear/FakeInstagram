@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.File;
 
 @Service
 @RequiredArgsConstructor
-public class MailIdentifierServiceImpl implements MailIdentifierService {
+public class MailServiceImpl {
     private final JavaMailSender javaMailSender;
 
     @Async
@@ -25,13 +24,6 @@ public class MailIdentifierServiceImpl implements MailIdentifierService {
             helper.setText(text);
             helper.setFrom(from);
             helper.setTo(to);
-
-            if (filePath != null) {
-                File file = new File(filePath);
-                if (file.exists()) {
-                    helper.addAttachment(file.getName(), new File(filePath));
-                }
-            }
 
             javaMailSender.send(message);
         } catch (MessagingException e) {
