@@ -16,11 +16,6 @@ public class RegisterController {
         return registerService.isAlreadyRegisteredService(userId);
     }
 
-    @GetMapping("/checkVerification")
-    public boolean checkVerification(Integer code) {
-        return
-    }
-
     @PostMapping("/register")
     public boolean userRegister(@RequestBody RegisterRequest request) {
         return registerService.userRegisterService(request);

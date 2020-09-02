@@ -3,6 +3,7 @@ package com.kjbin0420.fakeinstagram.Service.auth;
 import com.kjbin0420.fakeinstagram.Entity.User.EmailAuthNum;
 import com.kjbin0420.fakeinstagram.Repository.User.EmailAuthNumRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -24,17 +25,17 @@ public class MailServiceImpl implements MailService {
     private final JavaMailSender javaMailSender;
     private final EmailAuthNumRepository emailAuthNumRepository;
 
+    @Value("${spring.mail.username}")
+    private final String sender;
     /**
      * 6 digits number generated and send.
      * Param List
-     * @param subject Mail's subject
-     * @param from Mail's sender
      * @param to Mail's receiver
      **/
 
     @Override
     @Async
-    public void sendMail(String subject, String from, String to) {
+    public void sendMail(String toAddress) {
         MimeMessage message = javaMailSender.createMimeMessage();
         final int number = ThreadLocalRandom.current().nextInt(100000, 1000000);
 
@@ -47,10 +48,10 @@ public class MailServiceImpl implements MailService {
 
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-            helper.setSubject(subject);
+            helper.setSubject("Mail Verification");
+            helper.setFrom("FakeInstagram");
             helper.setText(Integer.toString(number));
-            helper.setFrom(from);
-            helper.setTo(to);
+            helper.setTo(toAddress);
 
             javaMailSender.send(message);
         } catch (MessagingException e) {
