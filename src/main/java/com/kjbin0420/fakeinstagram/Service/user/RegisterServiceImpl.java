@@ -1,8 +1,6 @@
 package com.kjbin0420.fakeinstagram.Service.user;
 
-import com.kjbin0420.fakeinstagram.Entity.User.EmailAuthNum;
 import com.kjbin0420.fakeinstagram.Entity.User.UserData;
-import com.kjbin0420.fakeinstagram.Exceptions.EmailNumNotMatchedException;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserAlreadyRegisteredException;
 import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
@@ -24,7 +22,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RegisterServiceImpl implements RegisterService {
     private final UserRepository userRepository;
-    private final EmailAuthNumRepository emailAuthNumRepository;
 
     @Value("${profile.save.path}")
     private String uploadPath;
@@ -47,19 +44,8 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public boolean registerEmailCheckService(Integer num) {
-        return emailAuthNumRepository.findByNum(num)
-                .map(emailAuthNum -> {
-                    emailAuthNumRepository.delete(emailAuthNum);
-                    return true;
-                })
-                .orElse(false);
-    }
-
-    @Override
-    public boolean userRegisterService(RegisterRequest request){
-        Optional<UserData> userData = userRepository.findByUserId(request.getUserId());
-        if (userData.isEmpty()) {
+    public boolean userRegisterService(RegisterRequest request) {
+        try {
             if (request.getProfileImage() != null) {
                 userRepository.save(
                         UserData.builder()
@@ -70,8 +56,7 @@ public class RegisterServiceImpl implements RegisterService {
                                 .userName(request.getUserName())
                                 .build()
                 );
-            }
-            else {
+            } else {
                 userRepository.save(
                         UserData.builder()
                                 .userId(request.getUserId())
@@ -82,8 +67,8 @@ public class RegisterServiceImpl implements RegisterService {
                 );
             }
             return true;
-        }
-        else
+        } catch (Exception e) {
             throw new UserAlreadyRegisteredException();
+        }
     }
 }

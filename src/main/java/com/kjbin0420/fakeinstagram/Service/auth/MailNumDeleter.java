@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+/**
+    * This is email auto-delete class.
+    * @author kjbin0420
+**/
+
 @Component
 @RequiredArgsConstructor
 public class MailNumDeleter {
