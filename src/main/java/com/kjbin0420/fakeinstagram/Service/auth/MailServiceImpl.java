@@ -30,7 +30,7 @@ public class MailServiceImpl implements MailService {
     /**
      * 6 digits number generated and send.
      * Param List
-     * @param to Mail's receiver
+     * @param toAddress Mail's receiver
      **/
 
     @Override
@@ -49,7 +49,7 @@ public class MailServiceImpl implements MailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
             helper.setSubject("Mail Verification");
-            helper.setFrom("FakeInstagram");
+            helper.setFrom(sender);
             helper.setText(Integer.toString(number));
             helper.setTo(toAddress);
 
