@@ -3,6 +3,7 @@ package com.kjbin0420.fakeinstagram.Entity.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class BoardData {
     private String boardTitle;
 
     @Column(nullable = false)
+    @ColumnDefault("0")
     private Integer viewNum;
 
     @Column(updatable = true, nullable = false)
@@ -47,6 +49,10 @@ public class BoardData {
 
     public void addPicturePath(PicturePath picturePath) {
         this.picturePath.add(picturePath);
+    }
+
+    public void plusViewNum() {
+        this.viewNum++;
     }
 
     public Integer getUUID() {

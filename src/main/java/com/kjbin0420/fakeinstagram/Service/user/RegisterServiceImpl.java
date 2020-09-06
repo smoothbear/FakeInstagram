@@ -4,7 +4,6 @@ import com.kjbin0420.fakeinstagram.Entity.User.UserData;
 import com.kjbin0420.fakeinstagram.Exceptions.FileStorageException;
 import com.kjbin0420.fakeinstagram.Exceptions.UserAlreadyRegisteredException;
 import com.kjbin0420.fakeinstagram.Payload.Request.RegisterRequest;
-import com.kjbin0420.fakeinstagram.Repository.User.EmailAuthNumRepository;
 import com.kjbin0420.fakeinstagram.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

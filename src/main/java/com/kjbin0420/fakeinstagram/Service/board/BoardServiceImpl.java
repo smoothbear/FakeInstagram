@@ -21,6 +21,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
@@ -86,5 +88,15 @@ public class BoardServiceImpl implements BoardService {
 
         List<MultipartFile> picture = boardRequest.getPicture();
         this.uploadPictureService(picture, imagePath, boardData);
+    }
+
+    @Override
+    public void plusViewNumService(Integer boardID) {
+        BoardData data = boardRepository.findById(boardID)
+                .map(boardData -> {
+                    boardData.plusViewNum();
+                    return boardRepository.save(boardData);
+                })
+                .orElseThrow(BoardNotFoundException::new);
     }
 }

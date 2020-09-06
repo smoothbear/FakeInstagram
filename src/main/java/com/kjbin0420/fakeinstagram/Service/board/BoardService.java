@@ -7,4 +7,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface BoardService {
     public void addCommentService(HttpServletRequest request, String comment, Integer boardNum);
     public void addBoardService(HttpServletRequest request, BoardAddRequest boardRequest);
+    public void plusViewNumService(Integer boardId);
 }
