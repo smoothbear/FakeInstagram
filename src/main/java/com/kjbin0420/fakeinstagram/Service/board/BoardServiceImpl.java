@@ -21,8 +21,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +28,7 @@ public class BoardServiceImpl implements BoardService {
     private final BoardRepository boardRepository;
     private final BoardCommentRepository commentRepository;
     private final JwtTokenProvider jwtTokenProvider;
-
+    
     @Value("${board.image.path}")
     private final String imageBasicPath;
 
